@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#263738" />
+    <meta name="description" content="展場產品速查：快速選機型、掌握銷售重點與官方規格。" />
+    <title>產品速查｜展場銷售指南</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./products.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="回到頁首">
+        <span class="brand-mark" aria-hidden="true">展</span>
+        <span>展場產品速查</span>
+      </a>
+      <a class="top-link" href="#product-index">直接選產品 <span aria-hidden="true">↓</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-inner">
+          <p class="eyebrow">給現場銷售人員的快速指南</p>
+          <h1 id="page-title">先找到需求，<br class="mobile-break" />再推薦對的產品。</h1>
+          <p class="hero-copy">從機型快速跳轉，查看適合對象、開場問題、三個賣點與規格連結。</p>
+          <a class="button button-light" href="#product-index">瀏覽產品 <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-note" aria-hidden="true"><span>產品指南</span><span>01 / 2026</span></div>
+      </section>
+
+      <section class="content-section index-section" id="product-index" aria-labelledby="index-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow-dark">快速導覽</p>
+            <h2 id="index-title">直接選機型</h2>
+          </div>
+          <p class="section-note"><span id="product-count">—</span> 款產品 · 點選圖片跳到重點</p>
+        </div>
+        <div class="toolbar">
+          <div class="filters" id="series-filters" aria-label="依產品系列篩選"></div>
+          <label class="search-box">
+            <span class="sr-only">搜尋產品名稱或型號</span>
+            <span aria-hidden="true">⌕</span>
+            <input id="product-search" type="search" placeholder="搜尋名稱或型號" autocomplete="off" />
+          </label>
+        </div>
+        <div class="product-picker" id="product-picker"></div>
+        <p class="empty-state" id="empty-state" hidden>找不到符合的產品，試試其他關鍵字。</p>
+      </section>
+
+      <section class="content-section highlights-section" aria-labelledby="highlights-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow-dark">現場溝通重點</p>
+            <h2 id="highlights-title">活動與售後資訊</h2>
+          </div>
+          <p class="section-note">開始介紹前，先確認適用條件</p>
+        </div>
+        <div class="highlight-grid" id="highlight-grid"></div>
+        <p class="fine-print" id="fine-print"></p>
+      </section>
+
+      <section class="content-section catalog-section" id="catalog" aria-labelledby="catalog-title">
+        <div class="section-heading catalog-heading">
+          <div>
+            <p class="eyebrow eyebrow-dark">按系列快速比較</p>
+            <h2 id="catalog-title">產品銷售重點</h2>
+          </div>
+          <a class="back-link" href="#product-index">↑ 回到機型選擇</a>
+        </div>
+        <div id="product-groups"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div><span class="brand-mark brand-mark-small" aria-hidden="true">展</span><span>展場產品速查</span></div>
+      <p id="footer-note"></p>
+    </footer>
+  </body>
+</html>
