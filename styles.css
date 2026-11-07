@@ -81,7 +81,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .product-picker { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; }
 .picker-card { min-height: 193px; position: relative; display: flex; flex-direction: column; align-items: stretch; overflow: hidden; padding: 0; border: 1px solid #e5e5ea; border-radius: 18px; background: #fff; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
 .picker-card:hover { transform: translateY(-3px); border-color: #d2d2d7; box-shadow: 0 12px 28px rgba(0,0,0,.08); }
-.picker-art-wrap { height: 126px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 8px; background: #f5f5f7; }
+.picker-art-wrap { height: 126px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 8px; background: #f5f5f7; }
 .picker-meta { display: grid; gap: 3px; padding: 11px 14px 14px; }
 .picker-meta strong { overflow: hidden; color: var(--ink); font-size: 13px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
 .picker-meta > span:last-child { overflow: hidden; color: var(--muted); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
@@ -163,9 +163,9 @@ button { -webkit-tap-highlight-color: transparent; }
 .card-visual::after { display: none; }
 .card-visual.violet, .card-visual.blue, .card-visual.green, .card-visual.orange, .card-visual.black, .card-visual.white { background: #f5f5f7; }
 .card-visual .product-art { transform: scale(1.2); z-index: 1; }
-.product-photo-wrap { position: relative; z-index: 1; width: 100%; height: 100%; display: grid; place-items: center; overflow: hidden; padding: 20px 28px; }
+.product-photo-wrap { position: absolute; z-index: 1; inset: 0; display: grid; place-items: center; overflow: hidden; padding: 20px 28px; }
 .product-photo-wrap.compact { padding: 8px 10px; }
-.product-photo { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; object-position: center; }
+.product-photo { display: block; align-self: center; justify-self: center; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; object-position: center; }
 .card-index, .series-tag { position: absolute; z-index: 2; color: #6e6e73; font-size: 10px; font-weight: 500; letter-spacing: .01em; }
 .card-index { left: 20px; top: 18px; }
 .series-tag { right: 17px; bottom: 16px; padding: 6px 11px; border: 1px solid rgba(210,210,215,.72); border-radius: 999px; background: rgba(255,255,255,.88); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
