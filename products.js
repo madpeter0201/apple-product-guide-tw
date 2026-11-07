@@ -56,8 +56,8 @@ window.CATALOG = {
       description: "日常聆聽、通勤降噪與耳罩式音訊",
       products: [
         p("airpods-5", "AirPods 5", "AirPods 5", "NT$4,490 起", "earbuds", "blue", "日常聽音樂、通話與 Apple 裝置切換的使用者", "你會長時間戴耳機，還是主要用來通勤和接電話？", ["輕巧真無線設計", "與 Apple 裝置快速配對", "支援空間音訊體驗"], "主動式降噪款式和一般款的配置不同，依型號確認。", "https://www.apple.com/tw/airpods/"),
-        p("airpods-pro-3", "AirPods Pro 3", "AirPods Pro 3", "請洽官方商店", "earbuds", "violet", "通勤、旅行及重視主動式降噪的使用者", "你平常在吵雜環境使用耳機的時間多嗎？", ["入耳式設計與主動式降噪", "依耳塞貼合度調整聆聽體驗", "與 iPhone、iPad、Mac 搭配使用"], "耳塞尺寸、聽力健康及各項功能依產品頁說明。", "https://www.apple.com/tw/airpods/"),
-        p("airpods-max-2", "AirPods Max 2", "AirPods Max 2", "請洽官方商店", "headphones", "orange", "偏好耳罩式配戴與沉浸聆聽的使用者", "你會在家或辦公室長時間聽音樂、看影片嗎？", ["耳罩式聆聽體驗", "主動式降噪與通透模式", "Apple 裝置間便利切換"], "重量、顏色、連線及音訊功能以官方規格為準。", "https://www.apple.com/tw/airpods/")
+        p("airpods-pro-3", "AirPods Pro 3", "AirPods Pro 3", "NT$7,490", "earbuds", "violet", "通勤、旅行及重視主動式降噪的使用者", "你平常在吵雜環境使用耳機的時間多嗎？", ["入耳式設計與主動式降噪", "依耳塞貼合度調整聆聽體驗", "與 iPhone、iPad、Mac 搭配使用"], "耳塞尺寸、聽力健康及各項功能依產品頁說明。", "https://www.apple.com/tw/airpods/"),
+        p("airpods-max-2", "AirPods Max 2", "AirPods Max 2", "NT$17,990", "headphones", "orange", "偏好耳罩式配戴與沉浸聆聽的使用者", "你會在家或辦公室長時間聽音樂、看影片嗎？", ["耳罩式聆聽體驗", "主動式降噪與通透模式", "Apple 裝置間便利切換"], "重量、顏色、連線及音訊功能以官方規格為準。", "https://www.apple.com/tw/airpods/")
       ]
     },
     {
@@ -81,9 +81,9 @@ window.CATALOG = {
       description: "尋找重要物品，並搭配各類 Apple 配件",
       products: [
         p("airtag", "AirTag", "AirTag 第 2 代", "NT$990／單件", "tag", "white", "常忘記鑰匙、行李或其他隨身物品的 iPhone 使用者", "你最常找不到的是鑰匙、包包，還是行李？", ["透過「尋找」app 定位物品", "可選單件或四件裝", "可加購鑰匙圈或吊飾"], "需搭配相容 Apple 裝置和 Apple 帳號；AirTag 不適用於追蹤人或寵物。", "https://www.apple.com/tw/airtag/"),
-        p("apple-pencil", "Apple Pencil Pro", "Apple Pencil Pro", "請洽官方商店", "pencil", "white", "在 iPad 上繪圖、標註或手寫筆記的使用者", "你手上的 iPad 型號是哪一代？", ["支援繪圖、手寫與精準標註", "與相容 iPad 配對使用", "適合筆記和創作工作流"], "購買前務必核對 iPad 相容型號。", "https://www.apple.com/tw/shop/accessories/all/apple-pencil"),
-        p("magic-keyboard", "巧控鍵盤", "Mac／iPad 巧控鍵盤", "依型號而異", "keyboard", "black", "想為 Mac 或 iPad 建立更完整輸入工作區的使用者", "要搭配 Mac、iPad Pro 還是 iPad Air？", ["依裝置選擇對應鍵盤", "適合長時間輸入與工作", "部分 iPad 鍵盤含觸控式軌跡板"], "不同裝置的巧控鍵盤不可通用，請確認相容型號。", "https://www.apple.com/tw/shop/accessories/all/keyboards-mice"),
-        p("apple-watch-bands", "Apple Watch 錶帶", "各款錶帶", "依款式而異", "band", "orange", "想改變手錶風格、場合搭配或配戴手感的人", "手錶錶殼尺寸是多少？平常運動還是日常配戴？", ["多種材質與風格可選", "可依場合替換搭配", "有 Apple 與合作品牌款式"], "購買前確認錶殼尺寸相容性與材質保養方式。", "https://www.apple.com/tw/shop/watch/bands")
+        p("apple-pencil", "Apple Pencil Pro", "Apple Pencil Pro", "NT$4,390", "pencil", "white", "在 iPad 上繪圖、標註或手寫筆記的使用者", "你手上的 iPad 型號是哪一代？", ["支援繪圖、手寫與精準標註", "與相容 iPad 配對使用", "適合筆記和創作工作流"], "購買前務必核對 iPad 相容型號。", "https://www.apple.com/tw/shop/product/mx2d3ta/a/apple-pencil-pro"),
+        p("magic-keyboard", "巧控鍵盤", "Mac／iPad 巧控鍵盤", "NT$3,290 起", "keyboard", "black", "想為 Mac 或 iPad 建立更完整輸入工作區的使用者", "要搭配 Mac、iPad Pro 還是 iPad Air？", ["依裝置選擇對應鍵盤", "適合長時間輸入與工作", "部分 iPad 鍵盤含觸控式軌跡板"], "不同裝置的巧控鍵盤不可通用，請確認相容型號。", "https://www.apple.com/tw/shop/accessories/all/keyboards-mice"),
+        p("apple-watch-bands", "Apple Watch 錶帶", "各款錶帶", "NT$1,600 起", "band", "orange", "想改變手錶風格、場合搭配或配戴手感的人", "手錶錶殼尺寸是多少？平常運動還是日常配戴？", ["多種材質與風格可選", "可依場合替換搭配", "有 Apple 與合作品牌款式"], "購買前確認錶殼尺寸相容性與材質保養方式。", "https://www.apple.com/tw/shop/watch/bands")
       ]
     }
   ],
@@ -105,8 +105,47 @@ window.CATALOG = {
       theme: "mint"
     }
   ],
-  finePrint: "本頁為 Apple 產品線速查原型，參考 Apple 台灣官方商店與產品頁。價格可能隨時間、配置及供貨變動；功能、相容性和服務條款請以官方最新資訊為準。第三方通路售價可能不同。",
-  footerNote: "價格與產品資訊請定期核對 Apple 台灣官方頁面。"
+  finePrint: "本頁為非 Apple 官方的產品線速查頁。商品圖、顏色、容量／規格與價格依 Apple 台灣官方商店及產品規格整理；價格、供貨與可選配置可能調整，實際選項與售價請以各商品的 Apple Store 購買頁為準。",
+  footerNote: "商品圖採用 Apple 官方產品頁素材；購買前請以 Apple Store 確認最新配置與價格。"
+};
+
+// 依 Apple 台灣商店及技術規格頁整理；非儲存型產品以尺寸／連線規格替代容量。
+window.CATALOG.options = {
+  "iphone-duo": { colors: "夜空色、星光白色", capacity: "256GB、512GB、1TB、2TB", prices: "256GB NT$74,900；512GB NT$81,900；1TB NT$96,900；2TB NT$118,900", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-compare-iphone-duo-202609?.v=M0dlUVBobHVpY1h1dmlaR3RZekpENmZPZm9YejBValJVbXlTNDNkM1pFVjE5VXk1QVF5NWxrMFlTNWNpV2huNVM0TjRWdzF2UjRGVEY0c3dBQVZ6VFFlcU5xMENJdDhjbzVtS3hXU1dQS3c&fmt=png-alpha&hei=512&wid=400" },
+  "iphone-18-pro": { colors: "黑色、銀色、冰川藍色、勃根地紅色", capacity: "iPhone 18 Pro 與 Pro Max：256GB、512GB、1TB、2TB", prices: "iPhone 18 Pro NT$44,900 起；Pro Max NT$49,900 起，依容量與尺寸變動", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-compare-iphone-18-pro-202609?.v=M0dlUVBobHVpY1h1dmlaR3RZekpEMEhRUmlKNkhhdE80VTZIL1ZUdjd2eUpxQWhXdDZiUERGcnlNZW9hNkhxRmJPbDJJWDFrVGJEYlIxTitTcHhVWldHUUw4RnF3MmwyMUVGYm13ODRTWXlINUhveGhFc1lXWld4RkQ2dkFBMi8&fmt=png-alpha&hei=512&wid=400" },
+  "iphone-air": { colors: "天藍色、淺金色、雲白色、太空黑色", capacity: "256GB、512GB、1TB", prices: "NT$39,900 起；實際價格依容量與 Apple Store 當日選項", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-compare-iphone-air-202609?.v=M0dlUVBobHVpY1h1dmlaR3RZekpEMC9lSXF0eXpIalRkVVR5QXkvMTY3bDE5VXk1QVF5NWxrMFlTNWNpV2huNVM0TjRWdzF2UjRGVEY0c3dBQVZ6VFY3NC9UKzZjWlgwWjRhTEZ0Rlk0ZFk&fmt=png-alpha&hei=512&wid=400" },
+  "iphone-17": { colors: "黑色、白色、霧藍色、鼠尾草綠色、薰衣草紫色", capacity: "256GB、512GB", prices: "256GB NT$32,900；512GB NT$39,900", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-compare-iphone-17-202609?.v=M0dlUVBobHVpY1h1dmlaR3RZekpEL1l5N1hFTy9RTVZvRXBQbUJ5QTZYMUxxZU5scXpES1hnUm96ckN1R2pZN215d1FhSDJ0bkR0ZGZtUjZJNmFveGJIT1NwVjArc3diTWlTKzkwUStjL0U&fmt=png-alpha&hei=512&wid=400" },
+  "iphone-17e": { colors: "黑色、白色、嫩粉色", capacity: "256GB、512GB", prices: "256GB NT$25,900；512GB NT$32,900", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-compare-iphone-17e-202609?.v=M0dlUVBobHVpY1h1dmlaR3RZekpEeVVieTZWd1FNWlkrMERhdjh2VWpuVjE5VXk1QVF5NWxrMFlTNWNpV2huNVM0TjRWdzF2UjRGVEY0c3dBQVZ6VFpFNTBaaXJZQTgyQTZVTHN4dGxYRXM&fmt=png-alpha&hei=512&wid=400" },
+  "iphone-16": { colors: "黑色、白色、粉紅色、湖水綠色、湛海藍色", capacity: "128GB（Apple 台灣目前販售配置）", prices: "NT$29,900", image: "https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/geo/Apple-iPhone-16-finish-lineup-geo-240909_big.jpg.large.jpg" },
+  "macbook-neo": { colors: "銀色、胭粉色、青橘黃色、靛青色", capacity: "256GB 或 512GB SSD；8GB 統一記憶體", prices: "NT$23,900 起", image: "https://www.apple.com/v/macbook-neo/c/images/overview/highlights/highlights_colors_endframe__c5rr2wp9mp0m_large.jpg" },
+  "macbook-air": { colors: "天藍色、銀色、星光色、午夜色", capacity: "13 吋或 15 吋；512GB–4TB SSD、16GB–32GB 統一記憶體", prices: "NT$42,900 起，依尺寸與配置調整", image: "https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_startframe__c0rhv2ultfau_large.png" },
+  "macbook-pro-14": { colors: "太空黑色、銀色", capacity: "14 吋或 16 吋；SSD、記憶體容量依 M6／M5 Pro／M5 Max 配置", prices: "14 吋 NT$64,900 起；高階配置另計", image: "https://www.apple.com/v/macbook-pro/liquid-retina-xdr-display/ay/images/overview/welcome/hero_endframe__fwev9ebh42mq_xlarge.jpg" },
+  "macbook-pro-xdr": { colors: "太空黑色、銀色", capacity: "14 吋或 16 吋 PROLED XDR 顯示器；記憶體與 SSD 依晶片配置", prices: "NT$97,900 起", image: "https://www.apple.com/v/macbook-pro/liquid-retina-xdr-display/ay/images/overview/welcome/hero_endframe__fwev9ebh42mq_xlarge.jpg" },
+  "imac": { colors: "藍色、紫色、粉紅色、橙色、黃色、綠色、銀色", capacity: "24 吋；記憶體與 SSD 依晶片及配置選擇", prices: "NT$49,900 起", image: "https://www.apple.com/tw/imac/images/overview/welcome/welcome_hero__f23bdvt2rzam_large.webp" },
+  "mac-mini": { colors: "銀色", capacity: "記憶體與 SSD 依 M6／M5 Pro 配置；256GB SSD 起", prices: "NT$29,900 起", image: "https://www.apple.com/v/mac-mini/ab/images/overview/welcome/welcome_hero__ckmy0qsqi8ia_large.jpg" },
+  "mac-studio": { colors: "銀色", capacity: "1TB–16TB SSD；統一記憶體依 M5 Max／M5 Ultra 配置", prices: "NT$84,900 起", image: "https://www.apple.com/v/mac-studio/o/images/overview/hero/static_front__fmvxob6uyxiu_large.jpg" },
+  "studio-display": { colors: "銀色", capacity: "27 吋 5K 顯示器；標準玻璃或奈米紋理玻璃，支架依款式", prices: "NT$52,900 起", image: "https://www.apple.com/v/studio-display/f/images/overview/hero/static__bntadi3c3hde_large.jpg" },
+  "studio-display-xdr": { colors: "銀色", capacity: "27 吋 5K Retina XDR 顯示器；玻璃與支架依款式", prices: "NT$97,900 起", image: "https://www.apple.com/v/studio-display-xdr/b/images/overview/welcome/hero_endframe__e9f8zohdmimy_large.jpg" },
+  "ipad-pro": { colors: "太空黑色、銀色", capacity: "11 吋或 13 吋；256GB、512GB、1TB、2TB", prices: "Wi-Fi NT$39,900 起；容量、尺寸與行動網路配置另計", image: "https://www.apple.com/v/ipad-pro/aw/images/overview/hero/hero_endframe__du5kcy4qnxkm_large.jpg" },
+  "ipad-air": { colors: "太空灰色、藍色、紫色、星光色", capacity: "11 吋或 13 吋；128GB、256GB、512GB、1TB", prices: "11 吋 Wi-Fi NT$24,900 起；13 吋 Wi-Fi NT$31,900 起", image: "https://www.apple.com/v/ipad-air/ah/images/overview/hero/hero_endframe__6gl84bccyaqi_large.png" },
+  "ipad": { colors: "藍色、粉紅色、黃色、銀色", capacity: "11 吋；128GB、256GB、512GB", prices: "128GB NT$14,900；256GB NT$18,400；512GB NT$25,400", image: "https://www.apple.com/tw/ipad-11/images/overview/hero/hero__crzh9misvcuq_large.jpg" },
+  "ipad-mini": { colors: "午夜色、星光色", capacity: "8.5 吋；128GB、256GB、512GB；Wi-Fi 或 Wi-Fi + 行動網路", prices: "NT$22,900 起；依容量與連線規格調整", image: "https://www.apple.com/v/ipad-mini/a/images/overview/media-hero/hero_startframe__ck0movyphdzm_xlarge.png" },
+  "watch-series-12": { colors: "鋁金屬：深古銅、淺金、太空灰、黑；鈦金屬：燦金、原色；精密陶瓷：珍珠白、夜藍", capacity: "42 公釐或 46 公釐；GPS 或 GPS + 行動網路", prices: "NT$13,900 起；尺寸、材質與連線規格影響價格", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-compare-series-12-202609_GEO_TW?.v=eEpjZGlsbzI4YmtuR2pKQXNDTzZ5Mno3ZEV3ZHJzWnVtd3FGU21yb1crSFNJdUtTUDBOWFpiSlhVTXpFRllBbHh3bjN2YnFqM1ZoZ3RIVUtMNGZ3QllSL3ZJQWw1SlRQZ0ZJNE82aTdYaE9ReE54TFpQdHF6UkhBZWxWdUpxQUs&fmt=png-alpha&hei=520&wid=520" },
+  "watch-ultra-4": { colors: "原色鈦金屬、黑色鈦金屬", capacity: "49 公釐；GPS + 行動網路；錶帶依款式選擇", prices: "NT$27,900 起", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-compare-ultra-4-202609_GEO_TW?.v=L2VSQkd4TDVJZ2FsTFA2bmpPOGRLTzdKWTVzRnZrN2pSL05QeEMwOVRubjZOZlRRUVJ0S0xncld6Q0xIUjl5NnBiTUpDMmpyWHBySGFMQUxSNEhzWlFPRnpTVHhVSkwwQzNMZVB6RkJ4WG1acXFoWC9uNWRBVmx4VTBHaHVxM0Y&fmt=png-alpha&hei=520&wid=520" },
+  "watch-se-3": { colors: "午夜色、星光色", capacity: "40mm 或 44mm；GPS 或 GPS + 行動網路", prices: "NT$7,900 起；尺寸與連線規格影響價格", image: "https://www.apple.com/tw/apple-watch-se-3/images/overview/welcome/hero__fnvi3x49ydei_large.webp" },
+  "watch-hermes-series": { colors: "錶殼與 Hermès 錶帶依款式選擇", capacity: "42 公釐或 46 公釐；GPS + 行動網路", prices: "NT$32,500 起；依錶殼與錶帶款式調整", image: "https://www.apple.com/v/apple-watch-hermes/am/images/overview/opulence__crnbsycaglm6_large.jpg" },
+  "watch-hermes-ultra": { colors: "原色鈦金屬；Hermès 錶帶依款式選擇", capacity: "49 公釐；GPS + 行動網路", prices: "NT$33,500 起；依錶帶款式調整", image: "https://www.apple.com/tw/apple-watch-hermes/images/overview/hero/hero__djj2qvbj5yeu_large.png" },
+  "airpods-5": { colors: "白色", capacity: "開放式耳機；標準充電盒或無線充電盒", prices: "標準款 NT$4,490；無線充電盒款 NT$5,190", image: "https://www.apple.com/v/airpods/ag/images/overview/airpods_startframe__fesgym4ta7u6_large.jpg" },
+  "airpods-pro-3": { colors: "白色", capacity: "入耳式；MagSafe USB-C 充電盒，附多尺寸耳塞", prices: "NT$7,490", image: "https://www.apple.com/v/airpods/ag/images/overview/hero_endframe__calpooy4ucr6_large.jpg" },
+  "airpods-max-2": { colors: "午夜色、星光色、藍色、紫色、橙色", capacity: "耳罩式；USB-C 充電", prices: "NT$17,990", image: "https://www.apple.com/v/airpods/ag/images/overview/airpods_max_tunnel__emtt9kn0vq82_small.jpg" },
+  "vision-pro": { colors: "銀色；頭帶與光學鏡片配件依需求選擇", capacity: "256GB、512GB、1TB", prices: "256GB NT$129,900；512GB NT$136,900；1TB NT$147,400", image: "https://www.apple.com/v/apple-vision-pro/l/images/overview/hero/hero__cvgr5aj1ttsi_large.jpg" },
+  "apple-tv-4k": { colors: "黑色", capacity: "128GB Wi-Fi；256GB Wi-Fi + Ethernet", prices: "NT$9,900", image: "https://www.apple.com/tw/apple-tv-4k/images/overview/welcome/hero__fwxqo8gh62ye_large.webp" },
+  "homepod-mini-2": { colors: "白色、粉紅色、藍色、綠色、午夜色", capacity: "3.3 吋智慧喇叭；無儲存容量選項", prices: "NT$4,790", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/homepod-mini-2-compare-202610?.v=djVzOGVJcjlsSS9rUUNjK1FJOGpTM2R0S3NLeDNHMWJpNXZ1dW9IcTRPWE9SUmxLVHY2Q0ZiMjZVSFh3cjFhVHVUb3VPa2FUZVhQMFhDQnVBMWhwQTVhemRuUGZZOTdhcTM0VGg1WGR5UEE&fmt=jpeg&hei=500&qlt=90&wid=386" },
+  "homepod": { colors: "白色、午夜色", capacity: "6.6 吋智慧喇叭；無儲存容量選項", prices: "NT$10,990", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/homepod-compare-homepod-202610?.v=anc4Q21KUUdtZnFrZTdVeHNzZWo0aURlNTRQcVRVTm1vSDlNam1oVGZubUhpY21sWXdXMFlXcnN1bHJnMk0yOXZvdUZlR0V0VUdJSjBWaDVNVG95YkNNdlo5ZXh3V281cDZGNlljcXJWc2c&fmt=jpeg&hei=500&qlt=90&wid=386" },
+  "airtag": { colors: "白色；可免費鐫刻文字或圖案", capacity: "單件裝或 4 件裝", prices: "單件 NT$990；4 件裝 NT$3,390", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airtag-findmy-202601_GEO_TW?.v=dnVWM1JCbmV1Vlk2ZVRFQmNEZW5La040TUNyaGs5NHBON0MzeGtDZTdrRU5qemhMTzRjclpyVlJBcHZKb28wK0JkRlpCNVhYU3AwTldRQldlSnpRa0RnV1l6MHhZcndaTTBtSkNkNnpValk&fmt=jpeg&hei=890&qlt=90&wid=678" },
+  "apple-pencil": { colors: "白色", capacity: "Apple Pencil Pro；不適用儲存容量", prices: "NT$4,390", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MX2D3?.v=aERwRkppV2pTZWx2MDU5ek9FWVpkd2tuVHYzMERCZURia3c5SzJFOTlPamtyK21QQVlqVGgrcGQ5Uy9BWWRGOUU5TjEzNDVxWGZyenF5K251RnVTZXc&fmt=jpeg&hei=1144&qlt=90&wid=1144" },
+  "magic-keyboard": { colors: "白色或黑色，依型號選擇", capacity: "Mac 巧控鍵盤；iPad 11 吋或 13 吋巧控鍵盤，依機型配對", prices: "Mac 鍵盤 NT$3,290 起；iPad 巧控鍵盤 NT$9,490 起", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MDFV4TA?.v=SGZKdThkSmMwSXRjWjVMQUR2Y0VpV0plSUFzS2tKYWdhODBINzNubEdCUlJ4SU8zU0N4aHpDN0xQRGRieGNPM2xlWFo0bVdqSkZ2TEFhZ3BZTHczU3c&fmt=jpeg&hei=1144&qlt=90&wid=1144" },
+  "apple-watch-bands": { colors: "黑、白、藍、紫、綠、橙、金、銀、灰、紅、棕等；依款式選擇", capacity: "40mm、42mm、46mm 或 49mm 相容尺寸；材質與扣環依款式", prices: "Apple 錶帶 NT$1,600 起；金屬與 Hermès 款另計", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-bands-header-202609?.v=ai92cVhwU1MxYkM0aHhMQ1J2TkVlVk9yMUFub1lXYzlHRnpQUmxjUWFibUdWUFMvbG5ZWEdFV2tJdFZhSjNkVGdsbGZlRHV0Q3JlbHJxWXRlWjZpMmpMb2srVlIyampMNFlzcGVrektHeFU&fmt=jpeg&hei=960&qlt=90&wid=2012" }
 };
 
 function p(id, name, model, price, device, tone, fit, opener, points, note, specUrl) {

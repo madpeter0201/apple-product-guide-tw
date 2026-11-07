@@ -155,6 +155,9 @@ button, input { font: inherit; }
 .card-visual.green { background: linear-gradient(135deg,#d3dfd2,#ece6d5); }
 .card-visual.orange { background: linear-gradient(135deg,#e8d7c9,#e8e2cc); }
 .card-visual .product-art { transform: scale(1.2); z-index: 1; }
+.product-photo-wrap { position: relative; z-index: 1; width: 100%; height: 100%; display: grid; place-items: center; overflow: hidden; padding: 15px 22px; }
+.product-photo-wrap.compact { padding: 7px 9px; }
+.product-photo { display: block; width: 100%; height: 100%; object-fit: contain; }
 .card-index, .series-tag { position: absolute; z-index: 2; color: #52615e; font-family: "DM Sans", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .09em; }
 .card-index { left: 16px; top: 15px; }
 .series-tag { right: 15px; bottom: 14px; padding: 5px 8px; border: 1px solid #fff8; border-radius: 99px; background: #fff8; }
@@ -163,6 +166,9 @@ button, input { font: inherit; }
 .model-code { margin: 0 0 4px; color: #a16d4e; font-family: "DM Sans", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
 .product-title-row h4 { margin: 0; font-family: "Noto Sans TC", sans-serif; font-size: 18px; line-height: 1.4; }
 .price { white-space: nowrap; color: #a06140; font-size: 12px; font-weight: 700; }
+.product-specs { display: grid; gap: 7px; padding: 13px 13px; margin: 14px 0 2px; border: 1px solid #e5e8e1; border-radius: 4px; background: #f7f7f1; }
+.spec-row { display: grid; grid-template-columns: 76px minmax(0,1fr); gap: 8px; align-items: start; color: #455450; font-size: 10px; line-height: 1.65; }
+.spec-label { color: #9a6c50; font-weight: 700; }
 .pitch-block { padding-top: 15px; }
 .field-label { display: block; margin-bottom: 6px; color: #9a6c50; font-size: 9px; font-weight: 700; letter-spacing: .08em; }
 .pitch-block > p { margin: 0; color: #475754; font-size: 11px; line-height: 1.75; }
@@ -203,6 +209,9 @@ button, input { font: inherit; }
   .highlight-card { min-height: 0; padding: 21px; }
   .catalog-section { padding-top: 48px; }
   .card-visual { height: 190px; }
+  .product-photo-wrap { padding: 12px 16px; }
+  .product-specs { padding: 12px; }
+  .spec-row { grid-template-columns: 65px minmax(0,1fr); }
   .card-content { padding: 19px; }
   .footer { align-items: start; flex-direction: column; justify-content: center; padding-top: 20px; padding-bottom: 20px; }
 }

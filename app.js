@@ -15,11 +15,15 @@
   document.querySelector("#fine-print").textContent = catalog.finePrint;
   document.querySelector("#footer-note").textContent = `${catalog.updatedAt} 更新 · ${catalog.footerNote}`;
 
-  const productArt = (product, compact = false) => `
-    <span class="product-art ${product.tone} device-${product.device || "display"}${compact ? " compact" : ""}" aria-hidden="true">
-      <span class="art-glow"></span><span class="art-device"><span>${product.art}</span></span>
-      ${compact ? "" : `<span class="art-caption">${product.shortName}</span>`}
-    </span>`;
+  const productArt = (product, compact = false) => {
+    const image = catalog.options?.[product.id]?.image;
+    if (image) return `<span class="product-photo-wrap${compact ? " compact" : ""}"><img class="product-photo" src="${image}" alt="${product.name} 商品圖片" loading="lazy"></span>`;
+    return `
+      <span class="product-art ${product.tone} device-${product.device || "display"}${compact ? " compact" : ""}" aria-hidden="true">
+        <span class="art-glow"></span><span class="art-device"><span>${product.art}</span></span>
+        ${compact ? "" : `<span class="art-caption">${product.shortName}</span>`}
+      </span>`;
+  };
 
   const matches = product => {
     const found = `${product.name} ${product.model} ${product.series}`.toLocaleLowerCase().includes(query.toLocaleLowerCase());
@@ -58,6 +62,7 @@
   }
 
   function productCard(product) {
+    const options = catalog.options?.[product.id] || {};
     return `
       <article class="sales-card" id="${product.id}">
         <div class="card-visual ${product.tone}">
@@ -67,6 +72,11 @@
         </div>
         <div class="card-content">
           <div class="product-title-row"><div><p class="model-code">${product.model}</p><h4>${product.name}</h4></div><span class="price">${product.price || "洽詢現場"}</span></div>
+          <div class="product-specs" aria-label="顏色、容量與價格">
+            <div class="spec-row"><span class="spec-label">顏色</span><span>${options.colors || "依款式選擇"}</span></div>
+            <div class="spec-row"><span class="spec-label">容量／規格</span><span>${options.capacity || "依機型選擇"}</span></div>
+            <div class="spec-row"><span class="spec-label">價格</span><span>${options.prices || product.price || "請洽官方商店"}</span></div>
+          </div>
           <div class="pitch-block"><span class="field-label">適合對象</span><p>${product.fit}</p></div>
           <div class="pitch-block question-block"><span class="field-label">第一句這樣問</span><p>${product.opener}</p></div>
           <div class="pitch-block"><span class="field-label">三個主要賣點</span><ol class="selling-points">${product.points.map((point, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span>${point}</li>`).join("")}</ol></div>
