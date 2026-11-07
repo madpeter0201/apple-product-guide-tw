@@ -17,7 +17,7 @@
 
   const productArt = (product, compact = false) => {
     const image = catalog.options?.[product.id]?.image;
-    if (image) return `<span class="product-photo-wrap${compact ? " compact" : ""}"><img class="product-photo" src="${image}" alt="${product.name} 商品圖片" loading="lazy"></span>`;
+    if (image) return `<span class="product-photo-wrap photo-wrap-${product.id}${compact ? " compact" : ""}"><img class="product-photo photo-${product.id}" src="${image}" alt="${product.name} 商品圖片" loading="lazy"></span>`;
     return `
       <span class="product-art ${product.tone} device-${product.device || "display"}${compact ? " compact" : ""}" aria-hidden="true">
         <span class="art-glow"></span><span class="art-device"><span>${product.art}</span></span>
