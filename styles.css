@@ -50,3 +50,7 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
 
 .photo-subject{mix-blend-mode:darken}.photo .photo-subject img{mix-blend-mode:normal}
 
+/* Give specification and color selectors a balanced inset on every platform. */
+.config-select{-webkit-appearance:none;appearance:none;padding-left:14px;padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%236e6e73' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:12px 8px}
+@media(forced-colors:active){.config-select{appearance:auto;background-image:none}}
+
