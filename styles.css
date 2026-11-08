@@ -175,3 +175,16 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
   .quick-spec{min-height:82px}
   .quick-spec>strong{font-size:12px}
 }
+
+
+/* Simplified layout after removing duplicate blocks */
+.hero{
+  grid-template-columns:minmax(0,1fr);
+  max-width:none;
+}
+.hero-text{
+  max-width:760px;
+}
+.catalog-head{
+  display:block;
+}
