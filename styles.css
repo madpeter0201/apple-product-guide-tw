@@ -54,3 +54,62 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
 .config-select{-webkit-appearance:none;appearance:none;padding-left:14px;padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%236e6e73' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:12px 8px}
 @media(forced-colors:active){.config-select{appearance:auto;background-image:none}}
 
+/* PROLED XDR: a short, complete configuration path with a persistent selection. */
+.proled-dialog[open]{display:flex;flex-direction:column;overflow:hidden}
+.proled-dialog>.dialog-close{position:absolute;top:16px;right:16px;float:none;margin:0}
+.proled-dialog #detail-content{overflow-y:auto;overscroll-behavior:contain;min-height:0}
+.proled-dialog .display-edition{display:block;margin-top:9px;font-size:15px;line-height:1.6;font-weight:400;letter-spacing:0;color:#8b7b9a}
+.selection-step{border:0;padding:0;margin:27px 0 0;min-width:0}
+.selection-step legend{display:flex;align-items:center;gap:8px;padding:0;font-size:14px;line-height:1.6;font-weight:600;color:#40374f}
+.step-number{width:22px;height:22px;display:inline-grid;place-items:center;flex-shrink:0;border-radius:50%;background:#ede8f6;color:#7a64a9;font-size:11px}
+.step-help{font-size:11px;line-height:1.7;color:#8b8296;margin:8px 0 12px}
+.size-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:13px}
+.size-option{display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px 8px;min-height:72px;background:#fff;border:2px solid #e6e1ed;border-radius:13px;color:#40374f}
+.size-option strong{font-size:17px;font-weight:600}.size-option span{font-size:10px;color:#8b8296}
+.size-option.active,.configuration-card.active,.glass-option.active{border-color:#8972be;background:#f8f5fc}
+.configuration-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.configuration-card{position:relative;display:block;width:100%;min-height:101px;text-align:left;padding:15px 43px 15px 15px;border:2px solid #e6e1ed;border-radius:13px;background:#fff;color:#40374f}
+.configuration-card:hover,.size-option:hover,.glass-option:hover{border-color:#ae9cc9}
+.configuration-card.active:hover,.size-option.active:hover,.glass-option.active:hover{border-color:#8972be}
+.configuration-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;line-height:1.5}
+.configuration-heading strong{font-size:15px;font-weight:600}.configuration-price{font-size:14px;font-weight:600;white-space:nowrap}
+.configuration-capacity{display:block;font-size:12px;line-height:1.6;margin-top:5px;color:#655774}
+.configuration-cores{display:block;font-size:11px;line-height:1.7;color:#8b8296;margin-top:3px}
+.selection-check{position:absolute;top:18px;right:13px;width:17px;height:17px;display:grid;place-items:center;border:1px solid #d7cfdf;border-radius:50%;color:transparent;font-size:11px;line-height:1}
+.configuration-card.active .selection-check{border-color:#8972be;background:#8972be;color:white}
+.detail-info .proled-custom{margin-top:15px;padding:0;border:1px solid #e7e1ed;border-radius:12px;background:#fcfbfe;overflow:hidden}
+.proled-custom>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;list-style:none;padding:15px;font-size:12px;color:#665379}
+.proled-custom>summary::-webkit-details-marker{display:none}
+.proled-custom>summary::after{content:'+';font-size:18px;line-height:1;font-weight:400}
+.proled-custom[open]>summary::after{content:'−'}
+.custom-summary{margin-left:auto;font-size:10px;color:#998ba7}
+.proled-custom>p{font-size:10px;line-height:1.7;color:#8b8296;margin:0 15px 12px}
+.capacity-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 15px 15px}
+.capacity-field{display:flex;flex-direction:column;gap:8px;min-width:0;color:#665379;font-size:11px}
+.capacity-field .config-select{font-size:11px;padding-left:11px;padding-right:35px;background-position:right 13px center}
+.capacity-field .config-select:disabled{opacity:1;color:#796b86;background-image:none;padding-right:11px;cursor:default}
+.proled-custom>.text-button{margin:0 15px 15px;font-size:10px}
+.glass-options{display:grid;gap:9px;margin-top:13px}
+.glass-option{display:block;text-align:left;padding:13px 14px;border:2px solid #e6e1ed;border-radius:12px;background:#fff;color:#40374f}
+.glass-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;line-height:1.6}
+.glass-heading strong{font-size:12px;font-weight:600}.glass-heading>span{font-size:10px;color:#806a9c;white-space:nowrap}
+.glass-description{display:block;font-size:10px;line-height:1.7;margin-top:4px;color:#8b8296}
+.config-feedback{font-size:11px;line-height:1.8;color:#79628e;background:#f7f3fb;border-radius:9px;padding:10px 12px;margin:14px 0 0}
+.config-feedback:empty{display:none}
+.proled-price-panel .selection-label{font-size:10px;letter-spacing:.04em;color:#9c8cae;margin-bottom:10px}
+.proled-price-panel #selection-summary strong{display:block;font-size:14px;color:#4e405f;font-weight:600;line-height:1.6;margin-bottom:7px}
+.proled-price-panel #selection-summary>span{display:block;line-height:1.8;font-size:11px}
+.proled-price-panel .selected-price{margin:13px 0 8px;font-size:27px}
+.proled-price-panel .included-accessories{font-size:10px;line-height:1.8;margin:8px 0 0;color:#998ba7}
+.proled-live-selection{display:flex;align-items:center;justify-content:space-between;gap:22px;flex:none;padding:17px 36px;border-top:1px solid #e7e1ed;background:#fcfaff;box-shadow:0 -8px 30px #5b3d7910;z-index:3}
+.live-summary{display:flex;flex-direction:column;gap:5px;min-width:0}
+.live-summary strong{font-size:13px;line-height:1.6;font-weight:600;color:#4e405f}.live-summary>span{font-size:12px;line-height:1.7;color:#8b7b9a}
+.live-actions{display:flex;align-items:center;gap:20px;flex-shrink:0}.live-actions>strong{font-size:23px;font-weight:600;letter-spacing:-.025em;color:#4c3b61;white-space:nowrap}
+@media(max-width:1000px){.proled-live-selection{padding:16px 24px;gap:15px}.live-actions{gap:13px}.live-actions>strong{font-size:20px}.live-summary strong{font-size:11px}}
+@media(max-width:640px){.proled-dialog .detail-visual .photo{height:180px}.proled-dialog .detail-layout{padding-bottom:24px}.selection-step{margin-top:25px}.proled-live-selection{display:block;padding:12px 20px 16px}.live-summary{gap:2px;margin-bottom:10px}.live-summary strong{font-size:11px}.live-summary>span{font-size:10px}.live-actions{justify-content:space-between}.live-actions>strong{font-size:23px}.live-actions .primary{min-height:42px;padding:11px 17px;font-size:11px}.configuration-card{padding-left:13px;padding-right:38px}.configuration-heading strong{font-size:14px}.configuration-price{font-size:13px}.configuration-capacity{font-size:11px}.configuration-cores{font-size:10px}.capacity-options{grid-template-columns:1fr}.capacity-field .config-select{font-size:12px}.custom-summary{font-size:9px}.glass-heading{align-items:start}.glass-heading>span{font-size:9px}.glass-description{font-size:10px}}
+@media(forced-colors:active){.configuration-card.active,.glass-option.active,.size-option.active{border-color:Highlight}.configuration-card.active .selection-check{background:Highlight;color:HighlightText}}
+
+
+@media(max-width:1000px){.configuration-cards{grid-template-columns:1fr}}
+@media(max-width:640px){.live-summary strong{font-size:12px}.live-summary>span{font-size:11px}.configuration-capacity{font-size:12px}.configuration-cores{font-size:11px}}
+@media(max-width:640px){.proled-dialog{max-width:calc(100% - 20px)}.proled-dialog .display-edition{font-size:14px;margin-top:6px}}

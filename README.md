@@ -14,6 +14,10 @@
 
 商品資料位於 products.js 的 window.PRODUCTS。每個規格需包含顏色、名稱、價格和官方來源。Mac 與 Apple Watch 的配置起價以 priceFrom 標示，避免把未含自訂選配的金額當作最終報價。
 
+PROLED XDR 的配置由 proled-data.js 更新，透過 proled-configurator.js 管理相容選項。此系列採「尺寸 → 完整配置 → 玻璃」流程；記憶體與 SSD 升級收在自訂區，底部持續顯示完整選擇與價格。目前的 224 組售價均逐筆核對 Apple 台灣商店配置介面的回傳結果，未以選配加價自行推算總額。官方資料快照與核對程式保存在本機 research/collect-proled.py、research/proled-verified.json。
+
+新增配置時須核對尺寸、顏色、晶片、記憶體、SSD、玻璃、電源轉接器與官方完整售價是否吻合；不得以其他晶片可用的容量推定相容性。新設計擴用至其他系列前，須先取得使用者同意。
+
 research/ 保留本次官方來源核對資料，僅供本機維護，不作為公開網站資產。
 
 預覽：ruby -run -e httpd . -p 8765
