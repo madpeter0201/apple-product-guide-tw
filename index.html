@@ -1,82 +1,11 @@
 <!doctype html>
-<html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f5f5f7" />
-    <meta name="description" content="展場產品速查：快速選機型、掌握銷售重點與官方規格。" />
-    <title>產品速查｜展場銷售指南</title>
-    <link rel="stylesheet" href="./styles.css?v=20261107-11" />
-    <script src="./products.js?v=20261107-5" defer></script>
-    <script src="./app.js?v=20261107-3" defer></script>
-  </head>
-  <body>
-    <header class="topbar">
-      <a class="brand" href="#top" aria-label="回到頁首">
-        <span class="brand-mark" aria-hidden="true">展</span>
-        <span>展場產品速查</span>
-      </a>
-      <a class="top-link" href="#product-index">直接選產品 <span aria-hidden="true">↓</span></a>
-    </header>
-
-    <main id="top">
-      <section class="hero" aria-labelledby="page-title">
-        <div class="hero-inner">
-          <p class="eyebrow">給現場銷售人員的快速指南</p>
-          <h1 id="page-title">找到適合你的產品</h1>
-          <p class="hero-copy">從機型快速跳轉，查看適合對象、開場問題、三個賣點與規格連結。</p>
-          <a class="button button-light" href="#product-index">瀏覽產品 <span aria-hidden="true">↓</span></a>
-        </div>
-        <div class="hero-note"><span>Apple 全系列產品</span><span>非 Apple 官方指南</span></div>
-      </section>
-
-      <section class="content-section index-section" id="product-index" aria-labelledby="index-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow eyebrow-dark">快速導覽</p>
-            <h2 id="index-title">直接選機型</h2>
-          </div>
-          <p class="section-note"><span id="product-count">—</span> 款產品 · 點選圖片跳到重點</p>
-        </div>
-        <div class="toolbar">
-          <div class="filters" id="series-filters" aria-label="依產品系列篩選"></div>
-          <label class="search-box">
-            <span class="sr-only">搜尋產品名稱或型號</span>
-            <span aria-hidden="true">⌕</span>
-            <input id="product-search" type="search" placeholder="搜尋名稱或型號" autocomplete="off" />
-          </label>
-        </div>
-        <div class="product-picker" id="product-picker"></div>
-        <p class="empty-state" id="empty-state" hidden>找不到符合的產品，試試其他關鍵字。</p>
-      </section>
-
-      <section class="content-section highlights-section" aria-labelledby="highlights-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow eyebrow-dark">現場溝通重點</p>
-            <h2 id="highlights-title">活動與售後資訊</h2>
-          </div>
-          <p class="section-note">開始介紹前，先確認適用條件</p>
-        </div>
-        <div class="highlight-grid" id="highlight-grid"></div>
-        <p class="fine-print" id="fine-print"></p>
-      </section>
-
-      <section class="content-section catalog-section" id="catalog" aria-labelledby="catalog-title">
-        <div class="section-heading catalog-heading">
-          <div>
-            <p class="eyebrow eyebrow-dark">按系列快速比較</p>
-            <h2 id="catalog-title">產品銷售重點</h2>
-          </div>
-          <a class="back-link" href="#product-index">↑ 回到機型選擇</a>
-        </div>
-        <div id="product-groups"></div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div><span class="brand-mark brand-mark-small" aria-hidden="true">展</span><span>展場產品速查</span></div>
-      <p id="footer-note"></p>
-    </footer>
-  </body>
-</html>
+<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5f7"><meta name="description" content="依用途與預算挑選 Apple 產品，查看顏色、容量、價格，並快速比較喜歡的機型。"><title>Pick.｜Apple 選購指南</title><link rel="stylesheet" href="./styles.css?v=20261108-1"><script src="./products.js?v=20261108-1" defer></script><script src="./app.js?v=20261108-1" defer></script></head>
+<body><a class="skip-link" href="#products">跳至商品</a><header class="topbar"><a class="brand" href="#top" aria-label="Apple 選購指南首頁"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Pick<span class="brand-dot">.</span> <span class="brand-caption">Apple 選購指南</span></span></a><a class="nav-link" href="#products">探索商品 <span aria-hidden="true">↗</span></a></header>
+<main id="top"><section class="hero"><div class="hero-text"><p class="eyebrow"><span class="tiny-dot"></span> YOUR LIFE. YOUR PICK.</p><h1>找到你的<span>剛剛好。</span></h1><p class="hero-copy">一點日常，一點靈感。挑選適合你的 Apple。</p></div><div class="quick-picks"><p>今天，你想做些什麼？</p><button data-quickneed="學習工作">學習與工作 <span>↗</span></button><button data-quickneed="運動健康">運動與健康 <span>↗</span></button><button data-quickneed="居家娛樂">放鬆與娛樂 <span>↗</span></button></div></section><nav id="categories" class="categories" aria-label="商品分類"></nav>
+<section id="products" class="catalog"><div class="catalog-head"><div><p class="eyebrow">挑選，從這裡開始</p><h2 id="catalog-title">所有產品<span>，各有精彩。</span></h2></div><label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.6"/></svg><input id="search" type="search" placeholder="搜尋商品、容量或功能" aria-label="搜尋商品、容量或功能"></label></div>
+<div class="filter-bar"><div id="needs" class="needs" aria-label="依用途篩選"></div><div class="select-filters"><label><span>預算</span><select id="budget"><option value="all">不限預算</option><option value="0-10000">NT$10,000 以下</option><option value="10001-30000">NT$10,001–30,000</option><option value="30001-60000">NT$30,001–60,000</option><option value="60001-999999">NT$60,001 以上</option></select></label><label><span>排序</span><select id="sort"><option value="default">建議順序</option><option value="low">價格由低到高</option><option value="high">價格由高到低</option><option value="name">商品名稱</option></select></label></div></div>
+<div class="results-bar"><p id="result-count" role="status" aria-live="polite"></p><button id="reset" class="text-button" hidden>清除篩選</button></div><div id="product-grid" class="product-grid"></div><div id="empty" class="empty" hidden><h3>還沒找到喜歡的嗎？</h3><p>換個關鍵字，或放寬預算再看看。</p><button class="primary" id="empty-reset">查看所有產品</button></div></section>
+<section class="help"><div><span class="help-icon" aria-hidden="true">↔</span><h3>喜歡好幾款？放在一起比較。</h3><p>勾選最多 3 款商品，一次看看價格、規格與特色。</p></div><div><span class="help-icon" aria-hidden="true">◉</span><h3>顏色、容量，選到剛剛好。</h3><p>點選「選擇規格」，查看可選外觀與對應價目。</p></div></section></main>
+<footer><div><strong>Apple 選購指南</strong><span>非 Apple 官方網站</span></div><p>價格為 Apple 台灣官方商店參考價。資料核對：2026 / 11 / 08。價格與供貨可能調整，購買時請以 Apple 官方商店為準。Mac 自訂配置與 Apple Watch 錶帶選擇可能影響最終售價。商品圖片取自 Apple 官方網站。</p></footer>
+<div id="compare-tray" class="compare-tray" hidden><div id="compare-items"></div><div class="tray-actions"><button id="compare-clear" class="text-button">清空</button><button id="compare-open" class="primary">比較商品</button></div></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
+<dialog id="product-dialog" aria-labelledby="detail-title"><button class="dialog-close" data-close aria-label="關閉商品詳情">×</button><div id="detail-content"></div></dialog><dialog id="compare-dialog" aria-labelledby="compare-title"><button class="dialog-close" data-close aria-label="關閉商品比較">×</button><div id="compare-content"></div></dialog><noscript><p class="empty">請開啟 JavaScript 以使用商品搜尋、規格選擇與比較功能。</p></noscript></body></html>

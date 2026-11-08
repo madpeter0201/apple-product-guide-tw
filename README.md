@@ -1,26 +1,19 @@
-# Apple 全系列產品速查
+# Apple 選購指南
 
-靜態網站原型，包含 Apple 產品線快速跳轉、系列篩選、名稱／型號搜尋、產品銷售重點卡、選購與服務資訊、官方產品頁連結。
+顧客端的 Apple 商品探索與比較網站，以純 HTML、CSS、JavaScript 製作並部署至 GitHub Pages。
 
-## 開始使用
+## 功能
 
-直接用瀏覽器開啟 `index.html` 即可預覽。若要在本機啟動簡易伺服器，可在此資料夾執行：
+- 依系列、用途、預算、關鍵字篩選與價格排序
+- 顏色與規格選擇，顯示對應官方參考價
+- 最多 3 款商品比較，選擇保存在瀏覽器本機
+- 每個商品連結至對應 Apple 官方購買頁
+- 手機、平板、桌面響應式版面與鍵盤操作
 
-```sh
-python3 -m http.server 8000
-```
+## 更新
 
-然後瀏覽 `http://localhost:8000`。
+商品資料位於 products.js 的 window.PRODUCTS。每個規格需包含顏色、名稱、價格和官方來源。Mac 與 Apple Watch 的配置起價以 priceFrom 標示，避免把未含自訂選配的金額當作最終報價。
 
-## 更新內容
+research/ 保留本次官方來源核對資料，僅供本機維護，不作為公開網站資產。
 
-所有文字和商品資料都在 `products.js` 的 `window.CATALOG`：
-
-- `groups`：產品系列、說明與產品清單。
-- `products`：名稱、型號、價格、裝置插圖種類、適合對象、開場問題、賣點、提醒與 Apple 官方產品頁。
-- `highlights`：選購、相容性、活動或售後資訊卡。
-- `updatedAt`、`finePrint`、`footerNote`：資料日期與頁尾提醒。
-
-每項產品 `id` 必須唯一。產品插圖以 CSS 示意，`device` 可用 `phone`、`laptop`、`desktop`、`display`、`tablet`、`watch`、`earbuds`、`headphones`、`vision`、`tvbox`、`speaker`、`tag`、`pencil`、`keyboard`、`band`。
-
-價格與產品線會變動。更新時請核對 Apple 台灣官方商店和產品頁；現場售價、庫存、教育優惠、電信方案、服務與相容性應以實際條件為準。
+預覽：ruby -run -e httpd . -p 8765

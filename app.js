@@ -1,100 +1,45 @@
 (() => {
-  const catalog = window.CATALOG;
-  const products = catalog.groups.flatMap(group => group.products.map(product => ({ ...product, series: group.name })));
-  const picker = document.querySelector("#product-picker");
-  const groupsRoot = document.querySelector("#product-groups");
-  const search = document.querySelector("#product-search");
-  const filters = document.querySelector("#series-filters");
-  const emptyState = document.querySelector("#empty-state");
-  let activeSeries = "全部系列";
-  let query = "";
-
-  document.title = `${catalog.title}｜展場銷售指南`;
-  document.querySelector(".brand span:last-child").textContent = catalog.title;
-  document.querySelector("#product-count").textContent = `${products.length}`;
-  document.querySelector("#fine-print").textContent = catalog.finePrint;
-  document.querySelector("#footer-note").textContent = `${catalog.updatedAt} 更新 · ${catalog.footerNote}`;
-
-  const productArt = (product, compact = false) => {
-    const image = catalog.options?.[product.id]?.image;
-    if (image) return `<span class="product-photo-wrap photo-wrap-${product.id}${compact ? " compact" : ""}"><img class="product-photo photo-${product.id}" src="${image}" alt="${product.name} 商品圖片" loading="lazy"></span>`;
-    return `
-      <span class="product-art ${product.tone} device-${product.device || "display"}${compact ? " compact" : ""}" aria-hidden="true">
-        <span class="art-glow"></span><span class="art-device"><span>${product.art}</span></span>
-        ${compact ? "" : `<span class="art-caption">${product.shortName}</span>`}
-      </span>`;
-  };
-
-  const matches = product => {
-    const found = `${product.name} ${product.model} ${product.series}`.toLocaleLowerCase().includes(query.toLocaleLowerCase());
-    return found && (activeSeries === "全部系列" || activeSeries === product.series);
-  };
-
-  function renderFilters() {
-    const names = ["全部系列", ...catalog.groups.map(group => group.name)];
-    filters.innerHTML = names.map(name => `<button class="filter-chip${activeSeries === name ? " active" : ""}" type="button" data-series="${name}" aria-pressed="${activeSeries === name}">${name}</button>`).join("");
-    filters.querySelectorAll("button").forEach(button => button.addEventListener("click", () => {
-      activeSeries = button.dataset.series;
-      renderFilters();
-      renderCatalog();
-    }));
-  }
-
-  function renderCatalog() {
-    const shown = products.filter(matches);
-    picker.innerHTML = shown.map((product, index) => `
-      <a class="picker-card" href="#${product.id}" aria-label="跳到 ${product.name}，型號 ${product.model}">
-        <span class="picker-art-wrap">${productArt(product, true)}</span>
-        <span class="picker-meta"><span class="picker-series">${product.series}</span><strong>${product.shortName}</strong><span>${product.model}</span></span>
-        <span class="picker-number">${String(index + 1).padStart(2, "0")}</span>
-      </a>`).join("");
-
-    groupsRoot.innerHTML = catalog.groups.map(group => {
-      const groupProducts = group.products.map(product => ({ ...product, series: group.name })).filter(matches);
-      if (!groupProducts.length) return "";
-      return `
-        <section class="series-group" aria-labelledby="series-${slug(group.name)}">
-          <div class="series-heading"><div><h3 id="series-${slug(group.name)}">${group.name}</h3><p>${group.description}</p></div><span>${groupProducts.length} 款</span></div>
-          <div class="sales-grid">${groupProducts.map(productCard).join("")}</div>
-        </section>`;
-    }).join("");
-    emptyState.hidden = shown.length > 0;
-  }
-
-  function productCard(product) {
-    const options = catalog.options?.[product.id] || {};
-    return `
-      <article class="sales-card" id="${product.id}">
-        <div class="card-visual ${product.tone}">
-          <span class="card-index">${String(products.indexOf(products.find(item => item.id === product.id)) + 1).padStart(2, "0")} / ${String(products.length).padStart(2, "0")}</span>
-          ${productArt(product)}
-          <span class="series-tag">${product.series}</span>
-        </div>
-        <div class="card-content">
-          <div class="product-title-row"><div><p class="model-code">${product.model}</p><h4>${product.name}</h4></div><span class="price">${product.price || "洽詢現場"}</span></div>
-          <div class="product-specs" aria-label="顏色、容量與價格">
-            <div class="spec-row"><span class="spec-label">顏色</span><span>${options.colors || "依款式選擇"}</span></div>
-            <div class="spec-row"><span class="spec-label">容量／規格</span><span>${options.capacity || "依機型選擇"}</span></div>
-            <div class="spec-row"><span class="spec-label">價格</span><span>${options.prices || product.price || "請洽官方商店"}</span></div>
-          </div>
-          <div class="pitch-block"><span class="field-label">適合對象</span><p>${product.fit}</p></div>
-          <div class="pitch-block question-block"><span class="field-label">第一句這樣問</span><p>${product.opener}</p></div>
-          <div class="pitch-block"><span class="field-label">三個主要賣點</span><ol class="selling-points">${product.points.map((point, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span>${point}</li>`).join("")}</ol></div>
-          ${product.note ? `<div class="caution"><span aria-hidden="true">i</span><p>${product.note}</p></div>` : ""}
-          ${product.specUrl ? `<a class="spec-link" href="${product.specUrl}" target="_blank" rel="noopener noreferrer">查看 Apple 官方產品頁 <span aria-hidden="true">↗</span></a>` : `<span class="spec-link disabled">Apple 官方產品頁待補</span>`}
-        </div>
-      </article>`;
-  }
-
-  function slug(text) { return text.toLowerCase().replace(/[^a-z0-9\u4e00-\u9fff]+/g, "-"); }
-
-  document.querySelector("#highlight-grid").innerHTML = catalog.highlights.map(item => `
-    <article class="highlight-card ${item.theme}">
-      <p class="highlight-eyebrow">${item.eyebrow}</p><h3>${item.title}</h3><p class="highlight-body">${item.body}</p>
-      ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.linkText} <span aria-hidden="true">↗</span></a>` : `<span class="highlight-link disabled">${item.linkText}</span>`}
-    </article>`).join("");
-
-  search.addEventListener("input", event => { query = event.target.value.trim(); renderCatalog(); });
-  renderFilters();
-  renderCatalog();
+'use strict';
+const products=window.PRODUCTS, $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money=n=>'NT$'+n.toLocaleString('zh-TW');
+const state={series:'全部',need:'全部用途',query:'',budget:'all',sort:'default',compare:[]};
+try{state.compare=JSON.parse(localStorage.getItem('apple-guide-compare')||'[]').filter(id=>products.some(p=>p.id===id)).slice(0,3)}catch{}
+const series=['全部','iPhone','Mac','iPad','Apple Watch','AirPods','Vision','家庭','配件'];
+const categoryIds=['','iphone-17','macbook-air','ipad-air','watch-series-12','airpods-pro-3','vision-pro','homepod-mini-2','apple-pencil'];
+const colors={'星光白色':'#f1eee8','夜空色':'#41404b','冰川藍色':'#b9ccdb','勃根地紅色':'#6c303b','淺金色':'#e7d8ba','雲白色':'#f4f3ef','太空黑色':'#444447','天藍色':'#bbcddd','霧藍色':'#a6bbc8','鼠尾草綠色':'#9eaf9b','薰衣草紫色':'#c5bad7','嫩粉色':'#e8c4c9','湛海藍色':'#777bc1','湖水綠色':'#a8c3bd','午夜色':'#424750','星光色':'#e8dfcf','太空灰色':'#7f8085','銀色':'#dededf','黑色':'#353537','白色':'#f1f1f1','藍色':'#8cacc8','紫色':'#b4a2c2','粉紅色':'#e5b8c8','橙色':'#d99865','黃色':'#e9d784','綠色':'#a2b39b','原色鈦金屬':'#aaa59c','燦金色':'#d6bc91','珍珠白色':'#f0eee9','夜藍色':'#303f58','深古銅色':'#817268','胭粉色':'#d9b6bb','青橘黃色':'#e4e17b','靛青色':'#525b79','原色':'#aaa59c'};
+const unique=xs=>[...new Set(xs)];
+const colorNames=p=>unique(p.variants.map(v=>v.color));
+function range(){return state.budget==='all'?null:state.budget.split('-').map(Number)}
+function eligible(p){let r=range();return p.variants.filter(v=>!r||v.price>=r[0]&&v.price<=r[1])}
+function shownPrice(p){return Math.min(...eligible(p).map(v=>v.price))}
+function swatch(c){return '<span class="swatch" style="--color:'+esc(colors[c]||'#b9b6b2')+'" aria-hidden="true"></span>'}
+function photo(p,loading='lazy',image=p.image){return '<div class="photo '+esc(p.photoKind)+' photo-'+esc(p.id)+' '+(p.series==='Mac'?'mac':'')+'"><img src="'+esc(image)+'" alt="'+esc(p.name)+' 商品外觀" loading="'+loading+'" decoding="async"></div>'}
+function renderCategories(){ $('#categories').innerHTML=series.map((s,i)=>{let p=products.find(p=>p.id===categoryIds[i]);return '<button type="button" class="category '+(s===state.series?'active':'')+'" data-series="'+esc(s)+'" aria-pressed="'+(s===state.series)+'"><span class="category-img">'+(p?'<img src="'+esc(p.navImage||p.image)+'" alt="">':'<span class="category-all" aria-hidden="true">⊞</span>')+'</span><span>'+esc(s==='全部'?'所有產品':s)+'</span></button>'}).join('')}
+function renderNeeds(){let ns=['全部用途',...unique(products.filter(p=>state.series==='全部'||p.series===state.series).flatMap(p=>p.needs))];if(!ns.includes(state.need))state.need='全部用途';$('#needs').innerHTML=ns.map(n=>'<button type="button" class="need '+(n===state.need?'active':'')+'" data-need="'+esc(n)+'" aria-pressed="'+(n===state.need)+'">'+esc(n)+'</button>').join('')}
+function render(){
+let list=products.filter(p=>(state.series==='全部'||p.series===state.series)&&(state.need==='全部用途'||p.needs.includes(state.need))&&eligible(p).length&&[p.name,p.series,p.specs,p.colors,p.summary,p.features.join(' '),p.variants.map(v=>v.label).join(' ')].join(' ').toLowerCase().includes(state.query.toLowerCase()));
+if(state.sort==='low')list.sort((a,b)=>shownPrice(a)-shownPrice(b));if(state.sort==='high')list.sort((a,b)=>shownPrice(b)-shownPrice(a));if(state.sort==='name')list.sort((a,b)=>a.name.localeCompare(b.name,'zh-TW'));
+$('#catalog-title').innerHTML=esc(state.series==='全部'?'所有產品':state.series)+'<span>，各有精彩。</span>';
+$('#result-count').textContent=list.length+' 款商品'+(state.budget!=='all'?' · 顯示符合預算的配置起價':' · 價格以新台幣顯示');$('#empty').hidden=!!list.length;$('#reset').hidden=state.series==='全部'&&state.need==='全部用途'&&!state.query&&state.budget==='all';
+$('#product-grid').innerHTML=list.map(p=>{let cs=colorNames(p),price=shownPrice(p),from=p.priceFrom||new Set(p.variants.map(v=>v.price)).size>1;return '<article class="product-card" id="card-'+p.id+'"><div class="product-topline"><span>'+esc(p.series)+'</span></div><button class="photo-button" data-open="'+p.id+'" aria-label="查看 '+esc(p.name)+' 的顏色與規格">'+photo(p)+'</button><h3 class="product-title"><button data-open="'+p.id+'">'+esc(p.name)+'</button></h3><p class="product-summary">'+esc(p.summary)+'</p><div class="swatches" aria-label="可選顏色：'+esc(cs.join('、'))+'">'+cs.slice(0,8).map(c=>'<span title="'+esc(c)+'">'+swatch(c)+'</span>').join('')+'<span class="color-count">'+(cs.length>1?cs.length+' 色可選':esc(cs[0]))+'</span></div><p class="card-spec">'+esc(p.specs)+'</p><div class="card-bottom"><span class="card-price">'+money(price)+(from?'<small>起</small>':'')+'</span><button type="button" class="primary" data-open="'+p.id+'">'+(p.id==='apple-watch-bands'?'查看款式':'選擇規格')+'</button></div><label class="compare-check"><input type="checkbox" data-compare="'+p.id+'" '+(state.compare.includes(p.id)?'checked':'')+'>加入比較<span class="sr-only"> '+esc(p.name)+'</span></label></article>'}).join('');
+}
+function reset(){Object.assign(state,{series:'全部',need:'全部用途',query:'',budget:'all',sort:'default'});$('#search').value='';$('#budget').value='all';$('#sort').value='default';renderCategories();renderNeeds();render()}
+let toastTimer;function toast(t){$('#toast').textContent=t;$('#toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),2800)}
+function renderTray(){try{localStorage.setItem('apple-guide-compare',JSON.stringify(state.compare))}catch{}$('#compare-tray').hidden=!state.compare.length;$('#compare-items').innerHTML=state.compare.map(id=>{let p=products.find(x=>x.id===id);return '<div class="tray-item"><img src="'+esc(p.image)+'" alt=""><span>'+esc(p.name)+'</span><button data-remove="'+id+'" aria-label="移除 '+esc(p.name)+'">×</button></div>'}).join('');$('#compare-open').textContent='比較 '+state.compare.length+' 款';$('#compare-open').disabled=state.compare.length<2;document.querySelectorAll('[data-compare]').forEach(x=>x.checked=state.compare.includes(x.dataset.compare))}
+function compareToggle(id,checked){if(checked&&!state.compare.includes(id)){if(state.compare.length>=3){toast('最多比較 3 款，請先移除一款商品。');renderTray();return}state.compare.push(id)}else if(!checked)state.compare=state.compare.filter(x=>x!==id);renderTray()}
+function openDialog(d){d.showModal();document.body.classList.add('modal-open')}
+let activeProduct=null,activeVariant=null,previousFocus=null;
+function formatLabel(p,v){let s=v.label;for(let name of [p.name,'iPhone 18 Pro Max','iPhone 18 Pro','MacBook Pro','iPad Pro','iPad Air','iPad mini','iPad']){if(s.includes(name))s=s.replace(name,'').trim()}return s.replace(/^[-· ]+|[-· ]+$/g,'')||v.label}
+function openProduct(id){const p=products.find(p=>p.id===id);if(!p)return;activeProduct=p;activeVariant=eligible(p)[0]||p.variants[0];previousFocus=document.activeElement;
+$('#detail-content').innerHTML='<div class="detail-layout"><div class="detail-visual" id="detail-visual">'+photo(p,'eager')+'<p>商品外觀展示，請以所選規格與官方商品頁確認。</p></div><div class="detail-info"><p class="eyebrow">'+esc(p.series)+'</p><h2 id="detail-title">'+esc(p.name)+'</h2><p class="detail-summary">'+esc(p.summary)+'</p><div class="option-heading">顏色 <span id="color-label"></span></div><div id="color-options" class="color-options"></div><label for="config-select" class="option-heading" style="display:block">選擇容量與規格</label><select id="config-select" class="config-select"></select><div class="selected-config"><p id="selection-summary"></p><div class="selected-price" id="selected-price"></div><a id="official-buy" class="primary" href="'+esc(p.source)+'" target="_blank" rel="noopener noreferrer">前往 Apple 官方選購 ↗</a></div><div class="detail-specs"><h3>規格重點</h3><p>'+esc(p.specs)+'</p><ul>'+p.features.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div><details><summary>查看此顏色的完整價目</summary><table class="price-table"><thead><tr><th scope="col">容量／規格</th><th scope="col">價格'+(p.priceFrom?'起':'')+'</th></tr></thead><tbody id="price-table-body"></tbody></table></details><p class="detail-note">'+esc(p.note)+' '+(p.priceFrom?(p.series==='Apple Watch'?'價格以錶殼配置搭配基本錶帶為起點，其他錶帶組合另計。':'所列為配置起價；自訂記憶體、SSD 與其他選配請至官方頁確認最終價格。'):'')+'</p></div></div>';
+renderDetail();if(!$('#product-dialog').open)openDialog($('#product-dialog'));history.replaceState(null,'','#'+id)}
+function renderDetail(){let p=activeProduct,v=activeVariant,cs=colorNames(p);$('#color-label').textContent='· '+v.color;$('#color-options').innerHTML=cs.length>10?'<select id="color-select" class="config-select" aria-label="選擇顏色">'+cs.map(c=>'<option value="'+esc(c)+'" '+(c===v.color?'selected':'')+'>'+esc(c)+'</option>').join('')+'</select>':cs.map(c=>'<button type="button" class="color-option '+(c===v.color?'active':'')+'" data-color="'+esc(c)+'" aria-pressed="'+(c===v.color)+'">'+swatch(c)+esc(c)+'</button>').join('');let vs=p.variants.filter(x=>x.color===v.color);$('#config-select').innerHTML=vs.map((x,i)=>'<option value="'+i+'" '+(x===v?'selected':'')+'>'+esc(formatLabel(p,x))+' — '+money(x.price)+(p.priceFrom?' 起':'')+'</option>').join('');$('#selection-summary').textContent=v.color+' · '+formatLabel(p,v);$('#selected-price').innerHTML=money(v.price)+(p.priceFrom?'<small>起</small>':'');$('#official-buy').href=v.url||p.source;$('#price-table-body').innerHTML=vs.map(x=>'<tr><td>'+esc(formatLabel(p,x))+'</td><td>'+money(x.price)+(p.priceFrom?' 起':'')+'</td></tr>').join('');let image=v.image||p.image;let img=$('#detail-visual img');if(img.getAttribute('src')!==image){img.src=image;img.alt=p.name+' '+(v.image?v.color:'')+' 商品外觀'}}
+function openComparison(){if(state.compare.length<2)return;let ps=state.compare.map(id=>products.find(p=>p.id===id));let row=(name,fn)=>'<tr><th class="row-heading" scope="row">'+name+'</th>'+ps.map(p=>'<td>'+fn(p)+'</td>').join('')+'</tr>';$('#compare-content').innerHTML='<h2 id="compare-title">放在一起，更好選。</h2><p class="compare-intro">比較 '+ps.length+' 款商品，找出最符合你需求的選擇。</p><div class="compare-scroll" tabindex="0" aria-label="商品比較表，可橫向捲動"><table class="comparison"><thead><tr><th class="row-heading" scope="col">商品</th>'+ps.map(p=>'<th scope="col">'+photo(p,'eager')+'<h3>'+esc(p.name)+'</h3><button class="primary" data-detail="'+p.id+'">選擇規格</button></th>').join('')+'</tr></thead><tbody>'+row('官方參考價',p=>'<strong>'+money(p.price)+'</strong>'+((p.priceFrom||new Set(p.variants.map(v=>v.price)).size>1)?' 起':''))+row('適合需求',p=>esc(p.summary))+row('可選顏色',p=>esc(colorNames(p).join('、')))+row('容量與規格',p=>esc(p.specs))+row('主要特色',p=>'<ul>'+p.features.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>')+'</tbody></table></div><p class="compare-note">比較表顯示各款最低官方參考價；選擇規格可查看對應價目。Mac 自訂選配、Apple Watch 錶帶組合會影響最終價格。</p>';openDialog($('#compare-dialog'))}
+document.querySelector('.quick-picks').addEventListener('click',e=>{let b=e.target.closest('[data-quickneed]');if(!b)return;reset();state.need=b.dataset.quickneed;renderNeeds();render();$('#products').scrollIntoView({behavior:'smooth'});});
+$('#categories').addEventListener('click',e=>{let b=e.target.closest('[data-series]');if(!b)return;state.series=b.dataset.series;state.need='全部用途';renderCategories();renderNeeds();render()});$('#needs').addEventListener('click',e=>{let b=e.target.closest('[data-need]');if(!b)return;state.need=b.dataset.need;renderNeeds();render()});$('#search').addEventListener('input',e=>{state.query=e.target.value.trim();render()});$('#budget').addEventListener('change',e=>{state.budget=e.target.value;render()});$('#sort').addEventListener('change',e=>{state.sort=e.target.value;render()});$('#reset').addEventListener('click',reset);$('#empty-reset').addEventListener('click',reset);
+$('#product-grid').addEventListener('click',e=>{let b=e.target.closest('[data-open]');if(b)openProduct(b.dataset.open)});$('#product-grid').addEventListener('change',e=>{if(e.target.dataset.compare)compareToggle(e.target.dataset.compare,e.target.checked)});$('#compare-items').addEventListener('click',e=>{let b=e.target.closest('[data-remove]');if(b)compareToggle(b.dataset.remove,false)});$('#compare-clear').addEventListener('click',()=>{state.compare=[];renderTray()});$('#compare-open').addEventListener('click',openComparison);
+$('#detail-content').addEventListener('click',e=>{let b=e.target.closest('[data-color]');if(!b)return;let same=activeProduct.variants.find(v=>v.color===b.dataset.color&&v.label===activeVariant.label);activeVariant=same||activeProduct.variants.find(v=>v.color===b.dataset.color);let color=b.dataset.color;renderDetail();[...document.querySelectorAll('[data-color]')].find(x=>x.dataset.color===color)?.focus({preventScroll:true})});$('#detail-content').addEventListener('change',e=>{if(e.target.id==='color-select'){let color=e.target.value;activeVariant=activeProduct.variants.find(v=>v.color===color);renderDetail();$('#color-select').focus({preventScroll:true})}else if(e.target.id==='config-select'){activeVariant=activeProduct.variants.filter(v=>v.color===activeVariant.color)[Number(e.target.value)];renderDetail();$('#config-select').focus({preventScroll:true})}});$('#compare-content').addEventListener('click',e=>{let b=e.target.closest('[data-detail]');if(b){$('#compare-dialog').close();openProduct(b.dataset.detail)}});
+document.querySelectorAll('dialog').forEach(d=>{d.querySelector('[data-close]').addEventListener('click',()=>d.close());d.addEventListener('click',e=>{if(e.target===d){let r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}});d.addEventListener('close',()=>{if(!document.querySelector('dialog[open]'))document.body.classList.remove('modal-open');if(d.id==='product-dialog'){history.replaceState(null,'',location.pathname+location.search+'#products');if(previousFocus?.isConnected)previousFocus.focus({preventScroll:true})}})});
+document.addEventListener('error',e=>{if(e.target.tagName==='IMG'&&e.target.closest('.photo')){let w=e.target.closest('.photo');if(!w.querySelector('.image-fallback'))w.insertAdjacentHTML('beforeend','<span class="image-fallback">圖片暫時無法載入<br>可至官方頁查看商品外觀</span>');e.target.style.visibility='hidden'}},true);
+renderCategories();renderNeeds();render();renderTray();let deep=location.hash.slice(1);if(products.some(p=>p.id===deep))openProduct(deep);window.addEventListener('hashchange',()=>{let id=location.hash.slice(1);if(products.some(p=>p.id===id)&&activeProduct?.id!==id)openProduct(id)});
 })();
