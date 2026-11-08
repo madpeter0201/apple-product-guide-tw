@@ -22,6 +22,25 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
 .catalog h2 span{margin-left:.35em}@media(min-width:641px) and (max-width:1000px){.catalog h2 span{margin-left:0}}
 
 .card-color{display:inline-grid;place-items:center;width:18px;height:18px;flex:0 0 18px;padding:3px;background:transparent;border-radius:50%;border:0}.card-color[aria-pressed=true]{box-shadow:0 0 0 1.5px #806bb9}.card-color:disabled{opacity:.3;cursor:not-allowed}.photo.variant-image img{width:100%!important;height:100%!important;transform:none!important;object-fit:contain!important}.photo.variant-image.mac img,.photo.variant-image.watch img{object-fit:cover!important}.photo.loading img{opacity:0}.photo.loading::after{content:'正在載入商品外觀…';position:absolute;inset:0;display:grid;place-content:center;font-size:11px;color:#8c7c9e;background:linear-gradient(110deg,#f5f5f7,#efedf5,#f5f5f7)}
-@media(max-width:640px){.card-color:nth-of-type(n+5){display:none}.swatches{gap:3px;height:20px}.card-color{width:17px;height:17px;flex-basis:17px}.color-count{max-width:65px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+@media(max-width:640px){.swatches{gap:4px;height:28px;overflow-x:auto;overflow-y:hidden;margin-left:-2px;margin-right:-2px;padding:4px 2px;scrollbar-width:none;overscroll-behavior-x:contain}.swatches::-webkit-scrollbar{display:none}.card-color{width:20px;height:20px;flex:0 0 20px;scroll-snap-align:start}.color-count{flex:0 0 auto;max-width:none;white-space:nowrap;padding-right:4px}}
 
 .color-option{min-height:44px}.color-count{min-width:0}.card-bottom .primary{min-height:44px}
+
+
+/* Comparison: make differences easy to scan. */
+.compare-summary{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 22px}
+.compare-summary .compare-intro{margin:0}
+.compare-diff-count{flex:0 0 auto;padding:7px 11px;border-radius:99px;background:#eee9f8;color:#6652ab;font-size:10px;font-weight:600}
+.compare-mobile-hint{display:none;margin:-8px 0 16px;font-size:10px;line-height:1.6;color:#86868b}
+.diff-badge{display:block;width:max-content;margin-top:6px;padding:3px 6px;border-radius:99px;background:#eee9f8;color:#6652ab;font-size:9px;font-weight:600;line-height:1.2}
+.comparison tr.compare-different td{background:#fcfbff}
+.comparison tr.compare-different .row-heading{color:#6652ab}
+@media(max-width:640px){
+  .compare-summary{align-items:flex-start;margin-bottom:10px}
+  .compare-diff-count{font-size:9px;padding:6px 9px}
+  .compare-mobile-hint{display:block}
+  .comparison .row-heading{position:sticky;left:0;z-index:2;background:#fff;box-shadow:8px 0 12px -12px #44305c55}
+  .comparison thead .row-heading{z-index:3}
+  .comparison tr.compare-different .row-heading{background:#f7f3fc}
+  .comparison tr.compare-different td{background:#fcfbff}
+}
