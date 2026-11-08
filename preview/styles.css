@@ -243,3 +243,23 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
   .product-card .photo.tablet img,
   .product-card .photo.watch img{transform:scale(.88)}
 }
+
+
+/* Variant image alignment override */
+.product-card .photo.variant-image.phone img{transform:scale(.92) !important}
+.product-card .photo.variant-image.tablet img{transform:scale(.90) !important}
+.product-card .photo.variant-image.watch img{transform:scale(.90) !important}
+.product-card .photo.variant-image.headphone img{transform:scale(.88) !important}
+.product-card .photo.variant-image.accessory img{transform:scale(.86) !important}
+.product-card .photo.variant-image.band img{transform:scale(.88) !important}
+.product-card .photo.variant-image.mac img{transform:scale(.92) !important}
+.product-card .photo.variant-image.pencil img{transform:rotate(-36deg) scale(.92) !important}
+.product-card .photo-iphone-16.variant-image img{transform:translateY(5%) scale(.91) !important}
+.product-card .photo-macbook-neo.variant-image img,
+.product-card .photo-macbook-air.variant-image img,
+.product-card .photo-macbook-pro-14.variant-image img,
+.product-card .photo-macbook-pro-xdr.variant-image img{transform:translateY(2%) scale(.94) !important}
+@media(max-width:640px){
+  .product-card .photo.variant-image.phone img{transform:scale(.90) !important}
+  .product-card .photo-iphone-16.variant-image img{transform:translateY(4%) scale(.89) !important}
+}
