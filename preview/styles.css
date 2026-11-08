@@ -157,3 +157,33 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
 .product-card .photo.variant-image.pencil img{
   transform:translateY(var(--card-y,0)) rotate(-36deg) scale(var(--card-scale,1)) !important;
 }
+
+
+/* Detail select arrow spacing */
+.select-shell{
+  position:relative;
+  display:block;
+  width:100%;
+}
+.select-shell::after{
+  content:"";
+  position:absolute;
+  right:20px;
+  top:50%;
+  width:9px;
+  height:9px;
+  border-right:1.8px solid #242532;
+  border-bottom:1.8px solid #242532;
+  transform:translateY(-65%) rotate(45deg);
+  pointer-events:none;
+}
+.select-shell .config-select{
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  background-image:none !important;
+  padding-right:54px;
+}
+@media(max-width:640px){
+  .select-shell::after{right:18px}
+  .select-shell .config-select{padding-right:50px}
+}
