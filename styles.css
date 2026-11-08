@@ -14,3 +14,7 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
 .photo-airpods-5 img{transform:translateY(-17%)}.photo-airpods-pro-3 img{transform:translateY(-10%)}.photo-homepod-mini-2 img{transform:translateY(-24%) scale(1.15)}.photo-watch-hermes-series img{transform:translateY(-17%) scale(1.2)}.photo-airtag img{transform:translateY(-5%)}
 
 .comparison .photo{height:140px;margin:0 0 18px;background:#f5f5f7}.comparison h3{min-height:46px}@media(max-width:640px){.comparison .photo{height:110px}}
+
+/* Keep the shopper's current category and filters within reach. */
+.categories{position:sticky;top:0;z-index:4;height:94px;padding-top:8px;padding-bottom:8px;background:rgba(246,246,250,.96);backdrop-filter:blur(18px);border-bottom:1px solid #e8e4ef}.category{padding:0 4px 8px;justify-content:center}.filter-bar{position:sticky;top:94px;z-index:3;background:rgba(246,246,250,.97);padding-top:12px;backdrop-filter:blur(18px)}
+@media(max-width:640px){.categories{height:86px;padding-top:6px;padding-bottom:6px}.filter-bar{top:86px;padding-top:9px;gap:10px}.needs{margin-left:-3px;margin-right:-3px}.category{padding:0 4px 6px}}
