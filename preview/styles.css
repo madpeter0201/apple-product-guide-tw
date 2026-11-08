@@ -87,12 +87,12 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
 }
 
 
-/* Card image centering correction */
-/* 商品卡只允許等比例縮放，不再使用上下位移。 */
+/* Card image calibration v2 — visible-product centering */
 .product-card .photo{
   display:flex;
   align-items:center;
   justify-content:center;
+  overflow:hidden;
 }
 .product-card .photo img{
   width:100% !important;
@@ -100,40 +100,60 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
   object-fit:contain !important;
   object-position:center center !important;
   transform-origin:center center !important;
-  transform:scale(var(--card-image-scale,1)) !important;
+  transform:translateY(var(--card-y,0)) scale(var(--card-scale,1)) !important;
 }
+.product-card .photo.pencil img{
+  transform:translateY(var(--card-y,0)) rotate(-36deg) scale(var(--card-scale,1)) !important;
+}
+.product-card .photo-iphone-duo{--card-y:-11%;--card-scale:0.96}
+.product-card .photo-iphone-18-pro{--card-y:-11%;--card-scale:0.96}
+.product-card .photo-iphone-18-pro-max{--card-y:-11%;--card-scale:0.96}
+.product-card .photo-iphone-air{--card-y:-9%;--card-scale:0.96}
+.product-card .photo-iphone-17{--card-y:-10%;--card-scale:0.96}
+.product-card .photo-iphone-17e{--card-y:-10%;--card-scale:0.96}
+.product-card .photo-iphone-16{--card-y:5%;--card-scale:0.98}
+.product-card .photo-macbook-neo{--card-y:-8%;--card-scale:1.10}
+.product-card .photo-macbook-air{--card-y:-8%;--card-scale:1.08}
+.product-card .photo-macbook-pro-14{--card-y:-6%;--card-scale:1.06}
+.product-card .photo-macbook-pro-xdr{--card-y:-6%;--card-scale:1.06}
+.product-card .photo-imac{--card-y:-4%;--card-scale:1.03}
+.product-card .photo-mac-mini{--card-y:-8%;--card-scale:1.75}
+.product-card .photo-mac-studio{--card-y:-6%;--card-scale:1.45}
+.product-card .photo-studio-display{--card-y:-4%;--card-scale:1.02}
+.product-card .photo-studio-display-xdr{--card-y:-4%;--card-scale:1.02}
+.product-card .photo-ipad-pro{--card-y:-6%;--card-scale:0.98}
+.product-card .photo-ipad-air{--card-y:-6%;--card-scale:0.98}
+.product-card .photo-ipad{--card-y:0%;--card-scale:0.94}
+.product-card .photo-ipad-mini{--card-y:-8%;--card-scale:0.98}
+.product-card .photo-watch-series-12{--card-y:-5%;--card-scale:0.96}
+.product-card .photo-watch-ultra-4{--card-y:-4%;--card-scale:0.98}
+.product-card .photo-watch-se-3{--card-y:-5%;--card-scale:0.96}
+.product-card .photo-watch-hermes-series{--card-y:-8%;--card-scale:1.04}
+.product-card .photo-watch-hermes-ultra{--card-y:-4%;--card-scale:0.98}
+.product-card .photo-airpods-5{--card-y:-10%;--card-scale:0.95}
+.product-card .photo-airpods-pro-3{--card-y:-8%;--card-scale:0.95}
+.product-card .photo-airpods-max-2{--card-y:-5%;--card-scale:0.95}
+.product-card .photo-vision-pro{--card-y:0%;--card-scale:0.92}
+.product-card .photo-apple-tv-4k{--card-y:0%;--card-scale:0.92}
+.product-card .photo-homepod-mini-2{--card-y:-8%;--card-scale:1.05}
+.product-card .photo-homepod{--card-y:-4%;--card-scale:0.98}
+.product-card .photo-airtag{--card-y:-3%;--card-scale:0.92}
+.product-card .photo-apple-pencil{--card-y:0%;--card-scale:0.95}
+.product-card .photo-apple-watch-bands{--card-y:-2%;--card-scale:0.95}
+.product-card .photo-apple-pencil-usbc{--card-y:0%;--card-scale:0.95}
+.product-card .photo-keyboard-mac{--card-y:0%;--card-scale:0.92}
+.product-card .photo-keyboard-ipad-air{--card-y:0%;--card-scale:0.92}
+.product-card .photo-keyboard-ipad-pro{--card-y:0%;--card-scale:0.92}
+.product-card .photo-keyboard-ipad-folio{--card-y:0%;--card-scale:0.92}
 
-/* 同類型以一致視覺尺度為基準 */
-.product-card .photo.phone{--card-image-scale:.96}
-.product-card .photo.tablet{--card-image-scale:.94}
-.product-card .photo.watch{--card-image-scale:.94}
-.product-card .photo.headphone{--card-image-scale:.92}
-.product-card .photo.accessory{--card-image-scale:.90}
-.product-card .photo.band{--card-image-scale:.92}
-.product-card .photo.mac{--card-image-scale:.96}
-
-/* 官方素材本身留白較多的機型，只放大、不移位 */
-.product-card .photo-mac-mini{--card-image-scale:1.85}
-.product-card .photo-mac-studio{--card-image-scale:1.48}
-.product-card .photo-studio-display,
-.product-card .photo-studio-display-xdr{--card-image-scale:1.02}
-.product-card .photo-imac{--card-image-scale:1.03}
-.product-card .photo-macbook-neo{--card-image-scale:1.08}
-.product-card .photo-macbook-air{--card-image-scale:1.06}
-.product-card .photo-macbook-pro-14,
-.product-card .photo-macbook-pro-xdr{--card-image-scale:1.04}
-.product-card .photo-iphone-16{--card-image-scale:.98}
-.product-card .photo-airpods-5,
-.product-card .photo-airpods-pro-3{--card-image-scale:.94}
-.product-card .photo-homepod-mini-2{--card-image-scale:1.05}
-.product-card .photo-watch-hermes-series{--card-image-scale:1.02}
-.product-card .photo-airtag{--card-image-scale:.92}
-
-/* 換色圖片也沿用相同置中規則 */
+/* 換色後仍使用同一機型的校正值 */
 .product-card .photo.variant-image img,
 .product-card .photo.variant-image.mac img,
 .product-card .photo.variant-image.watch img{
   object-fit:contain !important;
   object-position:center center !important;
-  transform:scale(var(--card-image-scale,1)) !important;
+  transform:translateY(var(--card-y,0)) scale(var(--card-scale,1)) !important;
+}
+.product-card .photo.variant-image.pencil img{
+  transform:translateY(var(--card-y,0)) rotate(-36deg) scale(var(--card-scale,1)) !important;
 }
