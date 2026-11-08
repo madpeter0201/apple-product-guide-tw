@@ -85,3 +85,55 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
 .catalog-head{
   display:block;
 }
+
+
+/* Card image centering correction */
+/* 商品卡只允許等比例縮放，不再使用上下位移。 */
+.product-card .photo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.product-card .photo img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  transform-origin:center center !important;
+  transform:scale(var(--card-image-scale,1)) !important;
+}
+
+/* 同類型以一致視覺尺度為基準 */
+.product-card .photo.phone{--card-image-scale:.96}
+.product-card .photo.tablet{--card-image-scale:.94}
+.product-card .photo.watch{--card-image-scale:.94}
+.product-card .photo.headphone{--card-image-scale:.92}
+.product-card .photo.accessory{--card-image-scale:.90}
+.product-card .photo.band{--card-image-scale:.92}
+.product-card .photo.mac{--card-image-scale:.96}
+
+/* 官方素材本身留白較多的機型，只放大、不移位 */
+.product-card .photo-mac-mini{--card-image-scale:1.85}
+.product-card .photo-mac-studio{--card-image-scale:1.48}
+.product-card .photo-studio-display,
+.product-card .photo-studio-display-xdr{--card-image-scale:1.02}
+.product-card .photo-imac{--card-image-scale:1.03}
+.product-card .photo-macbook-neo{--card-image-scale:1.08}
+.product-card .photo-macbook-air{--card-image-scale:1.06}
+.product-card .photo-macbook-pro-14,
+.product-card .photo-macbook-pro-xdr{--card-image-scale:1.04}
+.product-card .photo-iphone-16{--card-image-scale:.98}
+.product-card .photo-airpods-5,
+.product-card .photo-airpods-pro-3{--card-image-scale:.94}
+.product-card .photo-homepod-mini-2{--card-image-scale:1.05}
+.product-card .photo-watch-hermes-series{--card-image-scale:1.02}
+.product-card .photo-airtag{--card-image-scale:.92}
+
+/* 換色圖片也沿用相同置中規則 */
+.product-card .photo.variant-image img,
+.product-card .photo.variant-image.mac img,
+.product-card .photo.variant-image.watch img{
+  object-fit:contain !important;
+  object-position:center center !important;
+  transform:scale(var(--card-image-scale,1)) !important;
+}
