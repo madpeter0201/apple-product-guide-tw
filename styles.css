@@ -108,7 +108,7 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
   appearance:none !important;
   -webkit-appearance:none !important;
   background-image:none !important;
-  padding-right:52px;
+  padding-right:54px;
 }
 @media(max-width:640px){
   .select-shell::after{right:18px}
