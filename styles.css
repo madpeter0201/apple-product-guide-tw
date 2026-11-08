@@ -116,3 +116,62 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
 }
 
 @media(max-width:640px){.photo-iphone-16 img{transform:translateY(6%) scale(.98)}}
+
+
+/* Quick Look specs under product image */
+.quick-specs{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin:20px 0 0;
+}
+.quick-spec{
+  min-width:0;
+  padding:14px 15px;
+  border:1px solid #e7e4ed;
+  border-radius:14px;
+  background:#faf9fc;
+  text-align:left;
+}
+.quick-spec>span{
+  display:block;
+  margin-bottom:5px;
+  color:#958aa1;
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.06em;
+}
+.quick-spec>strong{
+  display:block;
+  color:#302a39;
+  font-size:14px;
+  line-height:1.35;
+  font-weight:650;
+  letter-spacing:-.02em;
+  overflow-wrap:anywhere;
+}
+.quick-spec>small{
+  display:block;
+  margin-top:4px;
+  color:#817b88;
+  font-size:9px;
+  line-height:1.45;
+}
+@media(max-width:1000px){
+  .quick-specs{gap:8px;margin-top:16px}
+  .quick-spec{padding:12px}
+  .quick-spec>strong{font-size:12px}
+}
+@media(max-width:640px){
+  .quick-specs{
+    grid-template-columns:repeat(4,minmax(120px,1fr));
+    overflow-x:auto;
+    gap:8px;
+    margin:16px -22px 4px;
+    padding:0 22px 5px;
+    scrollbar-width:none;
+  }
+  .quick-specs::-webkit-scrollbar{display:none}
+  .quick-spec{min-height:82px}
+  .quick-spec>strong{font-size:12px}
+}
