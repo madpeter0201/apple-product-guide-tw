@@ -85,3 +85,21 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
   .select-filters{display:grid;grid-template-columns:1fr 1fr}
   .select-filters label{gap:4px}
 }
+
+
+/* Select arrow spacing */
+.config-select{
+  appearance:none;
+  -webkit-appearance:none;
+  padding-right:48px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1.5 7 7.5 13 1.5' fill='none' stroke='%23242532' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 18px center;
+  background-size:14px 9px;
+}
+@media(max-width:640px){
+  .config-select{
+    padding-right:44px;
+    background-position:right 16px center;
+  }
+}
