@@ -86,20 +86,31 @@ body{background:#f6f6fa;color:#242532}.topbar{border-color:#e2e1e9}.brand-symbol
   .select-filters label{gap:4px}
 }
 
-
-/* Select arrow spacing */
-.config-select{
-  appearance:none;
-  -webkit-appearance:none;
-  padding-right:48px;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1.5 7 7.5 13 1.5' fill='none' stroke='%23242532' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;
-  background-position:right 18px center;
-  background-size:14px 9px;
+/* Stable custom select arrow */
+.select-shell{
+  position:relative;
+  display:block;
+  width:100%;
+}
+.select-shell::after{
+  content:"";
+  position:absolute;
+  right:20px;
+  top:50%;
+  width:9px;
+  height:9px;
+  border-right:1.8px solid #242532;
+  border-bottom:1.8px solid #242532;
+  transform:translateY(-65%) rotate(45deg);
+  pointer-events:none;
+}
+.select-shell .config-select{
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  background-image:none !important;
+  padding-right:52px;
 }
 @media(max-width:640px){
-  .config-select{
-    padding-right:44px;
-    background-position:right 16px center;
-  }
+  .select-shell::after{right:18px}
+  .select-shell .config-select{padding-right:48px}
 }
